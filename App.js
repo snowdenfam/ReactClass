@@ -1,15 +1,19 @@
-import React, {Component} from 'react';  
-import {Platform, StyleSheet, Text, View} from 'react-native';  
-  
-type Props = {};  
-export default class App extends Component<Props> {  
-  render() {  
-    return (  
-      <View>  
-        <Text>Hello World, dear God please work</Text>  
-      </View>  
-    );  
-  }  
-}  
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import HomeScreen from './src/screens/HomeScreen';
+import ComponentsScreen from './src/screens/ComponentsScreen';
 
+const navigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Components: ComponentsScreen,
+  },
+  {
+    initialRouteName: 'Components',
+    defaultNavigationOptions: {
+      title: 'App',
+    },
+  }
+);
 
+export default createAppContainer(navigator);
